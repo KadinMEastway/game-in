@@ -7,10 +7,10 @@ h1 {
 	margin: 0 25px;
 }
 
-ul {
+.list {
 	background-color: #dddddd;
+	border: solid 2px #ff0000;
 	border-style: none solid;
-	border-width: 2px;
 	border-radius: 5px;
 	list-style: circle inside;
 	max-height: 100px;
@@ -19,10 +19,6 @@ ul {
 	padding: 7px 10px;
 }
 
-ul.played {
+#played {
 	border-color: #00bb00
-}
-
-ul.unplayed {
-	border-color: #ff0000;
 }
