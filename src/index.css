@@ -2,50 +2,73 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
-	position: relative;
+button {
+	border-width: 3px;
+	width: 50%;
+}
+
+.addButton {
+	background-color: #5bff5b;
+	border-color: #00cc00;
+	border-radius: 0 0 0 5px;
+}
+.addButton:hover {
+	background-color: #00cc00;
+	border-color: #5bff5b;
+}
+
+.removeButton {
+	background-color: #ff5b5b;
+	border-color: #cc0000;
+	border-radius: 0 0 5px 0;
+}
+.removeButton:hover {
+	background-color: #cc0000;
+	border-color: #ff5b5b;
+}
+
+div {
+	font-size: 0;
+	margin: 10px;
+	padding: 0;
+	width: 260px;
 }
 
 h1 {
-	display: inline-block;
+	background-color: #aaaaaa;
+	border-radius: 5px 5px 0 0;
 	font-size: 30px;
-	margin: 0 25px;
+	text-align: center;
+	margin: 0;
 }
-
 
 li {
-	border-radius: 5px;
-	padding: 2px 4px;
-	margin: 1px 0;
+	font-size: 16px;
+	margin: 0;
+	padding: 2px 5px;
 }
-
 li:hover {
-	background-color: #aaaaaa;
+	border: 3px solid #aaaaaa;
+	border-width: 0 0 0 3px;
 }
 
-.list {
+ul {
 	background-color: #dddddd;
-	border: solid 2px #ff0000;
+	border: solid 3px #aaaaaa;
 	border-style: none solid;
-	border-radius: 5px;
 	list-style: none;
-	width: 260px;
-	margin: 10px 20px;
-	padding: 2px 2px;
-}
-
-#played {
-	border-color: #00bb00
+	margin: 0;
+	padding: 0;
 }
 
 #currentTime {
-	display: inline-block;
+	margin: 10px;
 	position: absolute;
-	top: 0;
 	right: 0;
+	top: 0;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 360px) {
 	#currentTime {
 		display: none;
 	}

@@ -8,6 +8,8 @@ app.use((request, response, next) => {
 	response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 	next();
 });
+app.use(express.json());
+app.use(express.text());
 
 app.get('/played-games', (request, response) => {
 	fs.readFile('/Users/keastway/Sites/game-in/data/played-games.json', 'utf8', (err, playedGames) => {

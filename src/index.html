@@ -7,15 +7,20 @@
 	</head>
 
 	<body>
-		<h1>Games Played</h1>
+		<div>
+			<h1 class="played">Games Played</h1>
+			<ul id="playedList"></ul>
+			<button id="addPlayedButton" class="addButton">+</button>
+			<button id="removePlayedButton" class="removeButton">–</button>
+		</div>
 		<time id="currentTime">0:00:00</time>
-		<ul id="played" class="list">
-		</ul>
-		<h1>Games to Play</h1>
-		<ul id="unplayed" class="list">
-		</ul>
+		<div>
+			<h1 class="unplayed">Games to Play</h1>
+			<ul id="unplayedList"></ul>
+			<button id="addUnplayedButton" class="addButton">+</button>
+			<button id="removeUnplayedButton" class="removeButton">–</button>
+		</div>
 		<p title="stop looking at me">Don't have the game yet? <a href="https://www.amazon.com/">Order it</a>, duh.</p>
-
 		<script src="file:///Users/keastway/Sites/game-in/src/index.js"></script>
 	</body>
 

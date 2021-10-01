@@ -1,5 +1,5 @@
-const listPlayed = document.getElementById("played");
-const listUnplayed = document.getElementById("unplayed");
+const listPlayed = document.getElementById("playedList");
+const listUnplayed = document.getElementById("unplayedList");
 const environment = {
 	urls: {
 		api: "http://localhost:3000"
@@ -40,6 +40,6 @@ async function main() {
 	addToList(listPlayed, playedGames);
 	addToList(listUnplayed, unplayedGames);
 
-	setInterval(changeDisplayTime, 1000);
+	//setInterval(changeDisplayTime, 1000);
 }
 main();
