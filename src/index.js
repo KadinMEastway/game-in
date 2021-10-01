@@ -9,10 +9,14 @@ const environment = {
 function addToList(list, gameOrGames) {
 	if (typeof gameOrGames === "string") {
 		const listItem = document.createElement("li");
+		const removeButton = document.createElement("button");
+		removeButton.setAttribute("class", "removeButton");
+		removeButton.innerText = "Remove";
 		listItem.innerText = gameOrGames;
+		listItem.appendChild(removeButton);
 		list.appendChild(listItem);
 	} else {
-		for (let i = 0; i < gameOrGames.length; i++) {
+		for (let i = 0;i < gameOrGames.length;i++) {
 			addToList(list, gameOrGames[i]);
 		}
 	}

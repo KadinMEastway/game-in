@@ -1,75 +1,83 @@
 * {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
 }
 
-button {
+div button {
+	font-size: 70%;
 	border-width: 3px;
-	width: 50%;
+	width: 10%;
+	height: 100%;
 }
-
 .addButton {
 	background-color: #5bff5b;
 	border-color: #00cc00;
-	border-radius: 0 0 0 5px;
+	border-radius: 0 5px 0 0;
+	color: #008800;
+	float: right;
 }
 .addButton:hover {
-	background-color: #00cc00;
+	background-color: #00aa00;
 	border-color: #5bff5b;
+	color: #5bff5b;
 }
-
 .removeButton {
 	background-color: #ff5b5b;
 	border-color: #cc0000;
-	border-radius: 0 0 5px 0;
+	border-radius: 5px;
+	display: none;
+	float: right;
 }
 .removeButton:hover {
 	background-color: #cc0000;
 	border-color: #ff5b5b;
 }
 
-div {
-	font-size: 0;
+#currentTime {
+	font-size: 20px;
 	margin: 10px;
-	padding: 0;
-	width: 260px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+div {
+	display: inline-block;
+	margin: 1%;
+	width: 48%;
 }
 
 h1 {
 	background-color: #aaaaaa;
 	border-radius: 5px 5px 0 0;
 	font-size: 30px;
+	height: 40px;
 	text-align: center;
-	margin: 0;
-}
-
-li {
-	font-size: 16px;
-	margin: 0;
-	padding: 2px 5px;
-}
-li:hover {
-	border: 3px solid #aaaaaa;
-	border-width: 0 0 0 3px;
 }
 
 ul {
 	background-color: #dddddd;
 	border: solid 3px #aaaaaa;
-	border-style: none solid;
+	border-top: none;
 	list-style: none;
-	margin: 0;
-	padding: 0;
+}
+li {
+	border: 3px solid transparent;
+	border-width: 3px;
+	font-size: 16px;
+	padding: 2px 0 2px 5px;
+}
+li:hover {
+	border-color: #aaaaaa;
+}
+li:hover button {
+	display: inline-block;
 }
 
-#currentTime {
-	margin: 10px;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-@media only screen and (max-width: 360px) {
-	#currentTime {
-		display: none;
+@media only screen and (max-width: 680px) {
+	div {
+		display: block;
 	}
 }
