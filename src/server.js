@@ -23,6 +23,11 @@ app.get('/unplayed-games', (request, response) => {
 	});
 });
 
+app.post('/add-played-game', (request, response) => {
+	console.log(request.body);
+	response.send(request.body + "back-end response");
+});
+
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });

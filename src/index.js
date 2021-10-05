@@ -11,7 +11,7 @@ function addToList(list, gameOrGames) {
 		const listItem = document.createElement("li");
 		const removeButton = document.createElement("button");
 		removeButton.setAttribute("class", "removeButton");
-		removeButton.innerText = "Remove";
+		removeButton.innerHTML = "-";
 		listItem.innerText = gameOrGames;
 		listItem.appendChild(removeButton);
 		list.appendChild(listItem);
@@ -20,6 +20,12 @@ function addToList(list, gameOrGames) {
 			addToList(list, gameOrGames[i]);
 		}
 	}
+}
+
+async function addPlayedGame() {
+	const newGame = prompt("Enter the name of the game you would like to add");
+	const playedGames = await postText("add-played-game", newGame);
+	console.log(await playedGames.text());
 }
 
 function changeDisplayTime() {
@@ -35,6 +41,14 @@ async function getJSON(api) {
 	const response = await fetch(`${environment.urls.api}/${api}`);
 	const toJSON = await response.json();
 	return toJSON;
+}
+
+async function postText(api, requestData) {
+	return await fetch(`${environment.urls.api}/${api}`, {
+		body: requestData,
+		headers: { 'Content-Type': 'text/plain' },
+		method: 'POST'
+	});
 }
 
 async function main() {

@@ -6,9 +6,7 @@
 }
 
 div button {
-	font-size: 70%;
 	border-width: 3px;
-	width: 10%;
 	height: 100%;
 }
 .addButton {
@@ -17,6 +15,8 @@ div button {
 	border-radius: 0 5px 0 0;
 	color: #008800;
 	float: right;
+	font-size: 18px;
+	width: 42px;
 }
 .addButton:hover {
 	background-color: #00aa00;
@@ -27,12 +27,16 @@ div button {
 	background-color: #ff5b5b;
 	border-color: #cc0000;
 	border-radius: 5px;
+	color:#880000;
 	display: none;
 	float: right;
+	font-size: 12px;
+	width: 26px;
 }
 .removeButton:hover {
 	background-color: #cc0000;
 	border-color: #ff5b5b;
+	color: #ff5b5b;
 }
 
 #currentTime {
@@ -43,18 +47,25 @@ div button {
 	bottom: 0;
 }
 
-div {
+.headerDiv {
+	height: 40px;
+	width: 100%;
+}
+.listDiv {
 	display: inline-block;
 	margin: 1%;
 	width: 48%;
+	
 }
 
 h1 {
 	background-color: #aaaaaa;
-	border-radius: 5px 5px 0 0;
+	border-radius: 5px 0 0 0;
+	display: inline-block;
 	font-size: 30px;
-	height: 40px;
+	height: 100%;
 	text-align: center;
+	width: calc(100% - 42px);
 }
 
 ul {
@@ -65,19 +76,20 @@ ul {
 }
 li {
 	border: 3px solid transparent;
-	border-width: 3px;
-	font-size: 16px;
-	padding: 2px 0 2px 5px;
+	border-radius: 1px;
+	font-size: 18px;
+	padding: 2px 5px;
 }
 li:hover {
-	border-color: #aaaaaa;
+	border-color: #888888;
 }
 li:hover button {
 	display: inline-block;
 }
 
-@media only screen and (max-width: 680px) {
-	div {
+@media only screen and (max-width: 970px) {
+	.listDiv {
 		display: block;
+		width: 98%;
 	}
 }
