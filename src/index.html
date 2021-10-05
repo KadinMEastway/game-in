@@ -10,16 +10,16 @@
 		<div class="listDiv">
 			<div class="headerDiv">
 				<h1 class="played">Games Played</h1>
-				<button class="addButton" onclick="addPlayedGame()">+</button>
+				<button class="addButton" onclick="addGame('add-played-game', listPlayed)">+</button>
 			</div>
-			<ul id="playedList"></ul>
+			<ul id="played-list"></ul>
 		</div>
 		<div class="listDiv">
 			<div class="headerDiv">
 				<h1 class="unplayed">Games to Play</h1>
-				<button id="addUnplayedButton" class="addButton">+</button>
+				<button class="addButton" onclick="addGame('add-unplayed-game', listUnplayed)">+</button>
 			</div>
-			<ul id="unplayedList"></ul>
+			<ul id="unplayed-list"></ul>
 		</div>
 		<p title="stop looking at me">Don't have the game yet? <a href="https://www.amazon.com/">Order it</a>, duh.</p>
 		<time id="currentTime">0:00:00</time>

@@ -1,7 +1,20 @@
+const { POINT_CONVERSION_COMPRESSED } = require('constants');
 const express = require('express');
 const app = express();
 const port = 3000;
 const fs = require("fs");
+
+function addGameToList(listName, req, res) {
+	fs.readFile(`/Users/keastway/Sites/game-in/data/${listName}-games.json`, 'utf8', (err, games) => {
+		const list = JSON.parse(games);
+		list.push(req.body);
+		fs.writeFile(`/Users/keastway/Sites/game-in/data/${listName}-games.json`, JSON.stringify(list), err => {
+			if(err) { console.error(err); }
+			console.log('Game list updated: \n' + list);
+		});
+		res.json(list);
+	});
+}
 
 app.use((request, response, next) => {
 	response.header('Access-Control-Allow-Origin', '*');
@@ -24,8 +37,11 @@ app.get('/unplayed-games', (request, response) => {
 });
 
 app.post('/add-played-game', (request, response) => {
-	console.log(request.body);
-	response.send(request.body + "back-end response");
+	addGameToList('played', request, response);
+});
+
+app.post('/add-unplayed-game', (request, response) => {
+	addGameToList('unplayed', request, response);
 });
 
 app.listen(port, () => {
