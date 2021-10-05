@@ -17,15 +17,15 @@ function updateGameList(list, gameOrGames) {
 		listItem.appendChild(removeButton);
 		list.appendChild(listItem);
 	} else {
-		for(let i = 0;i < gameOrGames.length;i++) {
+		for(let i = 0; i < gameOrGames.length; i++) {
 			updateGameList(list, gameOrGames[ i ]);
 		}
 	}
 }
 
-async function addGame(api, list) {
+async function addGame(listName, list) {
 	const newGame = prompt("Enter the name of the game you would like to add");
-	const newGameList = await postText(api, newGame);
+	const newGameList = await postText(`add-${listName}-game`, newGame);
 	list.innerHTML = '';
 	updateGameList(list, newGameList);
 }
