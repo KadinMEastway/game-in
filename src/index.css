@@ -23,7 +23,7 @@ div button {
 	border-color: #5bff5b;
 	color: #5bff5b;
 }
-.removeButton {
+.deleteButton {
 	background-color: #ff5b5b;
 	border-color: #cc0000;
 	border-radius: 5px;
@@ -33,7 +33,7 @@ div button {
 	font-size: 12px;
 	width: 26px;
 }
-.removeButton:hover {
+.deleteButton:hover {
 	background-color: #cc0000;
 	border-color: #ff5b5b;
 	color: #ff5b5b;
