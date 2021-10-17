@@ -32,7 +32,10 @@ function changeDisplayTime() {
 	document.getElementById("currentTime").innerHTML = hours + ":" + minutes + ":" + seconds;
 }
 
-async function editList(listName, requestData = prompt("Enter the name of the game you would like to add"), editMethod = 'POST') {
+async function editList(listName, requestData = null, editMethod = 'POST') {
+	if(requestData === null) {
+		requestData = prompt("Enter the name of the game you would like to add");
+	}
 	const list = document.getElementById(`${listName}-list`);
 	const editType = (editMethod === 'POST') ? 'add' : 'delete';
 	const newGameList = await improvedFetch(`${editType}-${listName}-game`, requestData, editMethod);
