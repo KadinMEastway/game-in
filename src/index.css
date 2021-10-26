@@ -52,7 +52,7 @@ div button {
 	width: 100%;
 }
 .listDiv {
-	display: inline-block;
+	display: inline-table;
 	margin: 1%;
 	width: 48%;
 }
