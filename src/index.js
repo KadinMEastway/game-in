@@ -17,7 +17,7 @@ async function addOrRemoveGame(list, action, requestData) {
 	updateGameList(list, newList);
 }
 
-function displayTime() { //calculates the time and updates the html time element to reflect this
+function displayTime() { //calculates the time and updates the HTML time element to reflect this
 	const d = new Date(); //creates new Date object 'd'
 	const hours = (d.getHours() % 12 === 0) ? 12 : d.getHours() % 12;
 	const minutes = (d.getMinutes() < 10) ? "0" + d.getMinutes() : d.getMinutes();
@@ -35,30 +35,30 @@ async function improvedFetch(list, method = 'GET', requestData) { //uses GET, PO
 	return response.json(); //returns the response from the fetch (which should be a list object)
 }
 
-function updateGameList(list, listData, gameIndex = 0) {
+function updateGameList(list, listData, gameIndex = 0) { //updates HTML unordered list using given list object
 	const listElement = document.getElementById(`${list}-list`);
-	if(typeof listData === "string") {
-		const listItem = document.createElement("li");
-		const deleteButton = document.createElement("button");
-		deleteButton.setAttribute("class", "deleteButton");
-		deleteButton.innerText = "-";
-		deleteButton.addEventListener('click', async () => { await addOrRemoveGame(list, 'remove', gameIndex); });
-		listItem.innerText = listData;
-		listItem.appendChild(deleteButton);
-		listElement.appendChild(listItem);
-	} else {
+	if(typeof listData !== "string") { //checks to make sure it is a list and not a single string
 		for(let i = 0; i < listData.length; i++) {
-			updateGameList(list, listData[ i ], i);
+			updateGameList(list, listData[ i ], i); //recursively calls itself to add each game(string) to the HTML list
 		}
+		return;
 	}
+	const listItem = document.createElement("li");
+	const deleteButton = document.createElement("button"); 
+	deleteButton.setAttribute("class", "deleteButton"); //adds class for styling purposes
+	deleteButton.innerText = "-"; //adds minus symbol to delete button
+	deleteButton.addEventListener('click', async () => { await addOrRemoveGame(list, 'remove', gameIndex); });
+	listItem.innerText = listData; //adds game(string) to the list item text
+	listItem.appendChild(deleteButton); //adds the delete button to the list item
+	listElement.appendChild(listItem); //adds the list item to the list
 }
 
 async function main() {
 	const playedGamesPromise = improvedFetch("played");
 	const unplayedGamesPromise = improvedFetch("unplayed");
-	const [playedGames, unplayedGames] = await Promise.all([ playedGamesPromise, unplayedGamesPromise ]); //retrieves both list objects from promises
+	const [playedGames, unplayedGames] = await Promise.all([ playedGamesPromise, unplayedGamesPromise ]);
 	updateGameList('played', playedGames);
-	updateGameList('unplayed', unplayedGames); //updates the HTML unordered lists using the retrieved list objects
+	updateGameList('unplayed', unplayedGames);
 
 	setInterval(displayTime, 1000); //updates time every second
 }
