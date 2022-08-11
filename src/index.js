@@ -1,15 +1,13 @@
-const listPlayed = document.getElementById("played-list");
-const listUnplayed = document.getElementById("unplayed-list");
-const environment = {
+const environment = { //sets up variable with api url and port for fetch function to hit
 	urls: {
 		api: "http://localhost:3000"
 	}
 };
 
 async function addOrRemoveGame(list, action, requestData) {
-	let newList = [];
+	let newList = []; //declares and initializes array for updated list to be stored in
 	if (action === 'add') {
-		requestData = prompt("Enter the name of the game you would like to add");
+		requestData = prompt("Enter the name of the game you would like to add"); //requests a game title input from the user
 		newList = await improvedFetch(list, 'POST', requestData);
 	} else if(action === 'remove') {
 		newList = await improvedFetch(list, 'DELETE', requestData);
@@ -19,22 +17,22 @@ async function addOrRemoveGame(list, action, requestData) {
 	updateGameList(list, newList);
 }
 
-function displayTime() {
-	const d = new Date();
+function displayTime() { //calculates the time and updates the html time element to reflect this
+	const d = new Date(); //creates new Date object 'd'
 	const hours = (d.getHours() % 12 === 0) ? 12 : d.getHours() % 12;
 	const minutes = (d.getMinutes() < 10) ? "0" + d.getMinutes() : d.getMinutes();
 	const seconds = (d.getSeconds() < 10) ? "0" + d.getSeconds() : d.getSeconds();
 	document.getElementById("currentTime").innerHTML = hours + ":" + minutes + ":" + seconds;
 }
 
-async function improvedFetch(list, method = 'GET', requestData) {
+async function improvedFetch(list, method = 'GET', requestData) { //uses GET, POST, or DELETE HTTP methods to fetch based on the given input
 	const api = `${method.toLowerCase()}-${list}-games`
-	const response = await fetch(`${environment.urls.api}/${api}`, {
+	const response = await fetch(`${environment.urls.api}/${api}`, { //fetches using api variable set up earlier
 		body: requestData,
 		headers: { 'Content-Type': 'text/plain' },
 		method: method
 	});
-	return response.json();
+	return response.json(); //returns the response from the fetch (which should be a list object)
 }
 
 function updateGameList(list, listData, gameIndex = 0) {
@@ -58,11 +56,11 @@ function updateGameList(list, listData, gameIndex = 0) {
 async function main() {
 	const playedGamesPromise = improvedFetch("played");
 	const unplayedGamesPromise = improvedFetch("unplayed");
-	const [playedGames, unplayedGames] = await Promise.all([ playedGamesPromise, unplayedGamesPromise ]);
+	const [playedGames, unplayedGames] = await Promise.all([ playedGamesPromise, unplayedGamesPromise ]); //retrieves both list objects from promises
 	updateGameList('played', playedGames);
-	updateGameList('unplayed', unplayedGames);
+	updateGameList('unplayed', unplayedGames); //updates the HTML unordered lists using the retrieved list objects
 
-	setInterval(displayTime, 1000);
+	setInterval(displayTime, 1000); //updates time every second
 }
 
 main();
