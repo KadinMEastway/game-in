@@ -41,31 +41,31 @@ app.use((request, response, next) => {
 app.use(express.json());
 app.use(express.text());
 
-app.get('/played-games', (request, response) => {
+app.get('/get-played-games', (request, response) => {
 	fs.readFile(`${fileDirectory}/played-games.json`, 'utf8', (err, playedGames) => {
 		response.send(playedGames);
 	});
 });
 
-app.get('/unplayed-games', (request, response) => {
+app.get('/get-unplayed-games', (request, response) => {
 	fs.readFile(`${fileDirectory}/unplayed-games.json`, 'utf8', (err, unplayedGames) => {
 		response.send(unplayedGames);
 	});
 });
 
-app.post('/add-played-game', (request, response) => {
+app.post('/post-played-games', (request, response) => {
 	addGameToList('played', request.body, response);
 });
 
-app.post('/add-unplayed-game', (request, response) => {
+app.post('/post-unplayed-games', (request, response) => {
 	addGameToList('unplayed', request.body, response);
 });
 
-app.delete('/delete-played-game', (request, response) => {
+app.delete('/delete-played-games', (request, response) => {
 	deleteGameFromList('played', parseInt(request.body), response);
 });
 
-app.delete('/delete-unplayed-game', (request, response) => {
+app.delete('/delete-unplayed-games', (request, response) => {
 	deleteGameFromList('unplayed', parseInt(request.body), response);
 });
 

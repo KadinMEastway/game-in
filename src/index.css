@@ -10,21 +10,21 @@ div button {
 	height: 100%;
 }
 .addButton {
-	background-color: #5bff5b;
+	background-color: #00ff00;
 	border-color: #00cc00;
 	border-radius: 0 5px 0 0;
-	color: #008800;
+	color: #006600;
 	float: right;
 	font-size: 18px;
 	width: 42px;
 }
 .addButton:hover {
-	background-color: #00aa00;
-	border-color: #5bff5b;
-	color: #5bff5b;
+	background-color: #00cc00;
+	border-color: #00ff00;
+
 }
 .deleteButton {
-	background-color: #ff5b5b;
+	background-color: #ff0000;
 	border-color: #cc0000;
 	border-radius: 5px;
 	color:#880000;
@@ -35,8 +35,7 @@ div button {
 }
 .deleteButton:hover {
 	background-color: #cc0000;
-	border-color: #ff5b5b;
-	color: #ff5b5b;
+	border-color: #ff0000;
 }
 
 #currentTime {
