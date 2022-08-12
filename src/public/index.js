@@ -6,11 +6,12 @@ const environment = { //sets up variable with api url and port for fetch functio
 
 async function addOrRemoveGame(list, action, requestData) {
 	let newList = []; //declares and initializes array for updated list to be stored in
+	const listId = (list === 'played')? "0" : (list === 'unplayed')? "1": "";
 	if (action === 'add') {
 		requestData = prompt("Enter the name of the game you would like to add"); //requests a game title input from the user
-		newList = await improvedFetch(list, 'POST', requestData);
+		newList = await improvedFetch(listId, 'POST', requestData);
 	} else if(action === 'remove') {
-		newList = await improvedFetch(list, 'DELETE', requestData);
+		newList = await improvedFetch(listId, 'DELETE', requestData);
 	}
 	const listElement = document.getElementById(`${list}-list`);
 	listElement.innerHTML = '';
@@ -25,9 +26,9 @@ function displayTime() { //calculates the time and updates the HTML time element
 	document.getElementById("currentTime").innerHTML = hours + ":" + minutes + ":" + seconds;
 }
 
-async function improvedFetch(list, method = 'GET', requestData) { //uses GET, POST, or DELETE HTTP methods to fetch based on the given input
-	const api = `${method.toLowerCase()}-${list}-games`
-	const response = await fetch(`${environment.urls.api}/${api}`, { //fetches using api variable set up earlier
+async function improvedFetch(id, method = 'GET', requestData) { //uses GET, POST, or DELETE HTTP methods to fetch based on the given input
+	const api = `${method.toLowerCase()}-games`;
+	const response = await fetch(`${environment.urls.api}/${api}/${id}`, { //fetches using api variable set up earlier
 		body: requestData,
 		headers: { 'Content-Type': 'text/plain' },
 		method: method
@@ -54,8 +55,8 @@ function updateGameList(list, listData, gameIndex = 0) { //updates HTML unordere
 }
 
 async function main() {
-	const playedGamesPromise = improvedFetch("played");
-	const unplayedGamesPromise = improvedFetch("unplayed");
+	const playedGamesPromise = improvedFetch("0");
+	const unplayedGamesPromise = improvedFetch("1");
 	const [playedGames, unplayedGames] = await Promise.all([ playedGamesPromise, unplayedGamesPromise ]);
 	updateGameList('played', playedGames);
 	updateGameList('unplayed', unplayedGames);
