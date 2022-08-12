@@ -30,6 +30,7 @@ app.use((request, response, next) => { //adding headers to allow front end to co
 	response.header('Access-Control-Allow-Methods', 'GET,POST,DELETE');
 	next();
 });
+app.use(express.static('src/public')); //allows users to access served static files in 'public' repository
 app.use(express.json()); //allows backend to send or recieve either JSON or plain text
 app.use(express.text());
 

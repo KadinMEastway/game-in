@@ -1,0 +1,10 @@
+[{
+    "id": "0",
+    "items": ["Skyrim","Zelda: Breath of the Wild","Final Fantasy XV","Fallout 4","Ratchet and Clank"],
+    "name": "played-games"
+},
+{
+    "id": "1",
+    "items": ["Horizon Zero Dawn","Ratchet and Clank: Rift Apart","Final Fantasy VII","Octopath Traveler","Devil May Cry 5"],
+    "name": "unplayed-games"
+}]

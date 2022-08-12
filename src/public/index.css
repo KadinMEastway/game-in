@@ -5,9 +5,8 @@
 	padding: 0;
 }
 
-div button {
-	border-width: 3px;
-	height: 100%;
+a {
+	font-size: 16px;
 }
 .addButton {
 	background-color: #00ff00;
@@ -21,7 +20,30 @@ div button {
 .addButton:hover {
 	background-color: #00cc00;
 	border-color: #00ff00;
-
+	
+}
+.backButton {
+	margin: 10px;
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	width: 20px;
+	height: 20px;
+}
+.forwardButton {
+	margin: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 40%;
+	width: 20px;
+	height: 20px;
+}
+#currentTime {
+	font-size: 20px;
+	margin: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 .deleteButton {
 	background-color: #ff0000;
@@ -37,25 +59,10 @@ div button {
 	background-color: #cc0000;
 	border-color: #ff0000;
 }
-
-#currentTime {
-	font-size: 20px;
-	margin: 10px;
-	position: absolute;
-	right: 0;
-	bottom: 0;
+div button {
+	border-width: 3px;
+	height: 100%;
 }
-
-.headerDiv {
-	height: 40px;
-	width: 100%;
-}
-.listDiv {
-	display: inline-table;
-	margin: 1%;
-	width: 48%;
-}
-
 h1 {
 	background-color: #aaaaaa;
 	border-radius: 5px 0 0 0;
@@ -65,12 +72,9 @@ h1 {
 	text-align: center;
 	width: calc(100% - 42px);
 }
-
-ul {
-	background-color: #dddddd;
-	border: solid 3px #aaaaaa;
-	border-top: none;
-	list-style: none;
+.headerDiv {
+	height: 40px;
+	width: 100%;
 }
 li {
 	border: 3px solid transparent;
@@ -84,10 +88,32 @@ li:hover {
 li:hover button {
 	display: inline-block;
 }
-
+.linkButton {
+	border: 1px solid #000000;
+	border-radius: 2px;
+	background-color: #aaaaaa;
+	color: #000000;
+	text-decoration: none;
+	text-align: center;
+}
+.listDiv {
+	display: inline-table;
+	margin: 1%;
+	width: 48%;
+}
 @media only screen and (max-width: 970px) {
 	.listDiv {
 		display: block;
 		width: 98%;
 	}
+}
+p {
+	font-size: 16px;
+	margin: 10px;
+}
+ul {
+	background-color: #dddddd;
+	border: solid 3px #aaaaaa;
+	border-top: none;
+	list-style: none;
 }
